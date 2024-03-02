@@ -1,0 +1,127 @@
+@import url("reset.css");
+@import url("common.css");
+
+body {
+   font-family: 'Poppins', sans-serif;
+   font-weight: 300;
+   font-size: 12px;
+   color: #6C757D;
+}
+
+
+
+.wrapper {
+   overflow: clip;
+   min-height: 100%;
+   display: flex;
+   flex-direction: column;
+}
+
+.wrapper>main {
+   flex: 1 1;
+}
+
+[class*='__container'] {
+   max-width: 1230px;
+   margin: 0 auto;
+   padding: 0 15px;
+}
+
+/*----------------------------*/
+
+
+.gallery {
+   position: relative;
+}
+
+.gallery__container {
+   padding-top: 140px;
+   padding-bottom: 140px;
+   display: flex;
+   aspect-ratio: 1920 / 1200;
+   column-gap: 15px;
+}
+
+.gallery__card {
+   flex-basis: 20%;
+   overflow: hidden;
+   border-radius: 40px;
+   cursor: pointer;
+   transition: flex-basis 0.750s;
+}
+.gallery__card._active {
+   flex-basis: 80%;
+}
+.gallery__card._active .gallery__img{
+   transform: scale(1.2);
+   filter: brightness(1);
+}
+
+.gallery__img {
+   width: 100%;
+   height: 100%;
+   transition: filter, transform 0.750s;
+   filter: brightness(0.5);
+}
+
+.gallery__img img,
+.gallery__bg img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+.gallery__bg {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: -1;
+   filter: brightness(0.35);
+   opacity: 0;
+   transition: opacity 0.750s;
+}
+.gallery__card._active .gallery__bg {
+   opacity: 1;
+}
+.gallery__inner {
+   position: relative;
+   top: 0%;
+   height: 30%;
+   width: 100%;
+   background-color: rgba(0, 0, 0, 0.6);
+   display: flex;
+   align-items: center;
+   transition: top 0.750s;
+   padding: 20px;
+}
+.gallery__card._active:hover .gallery__inner {
+   top: -30%;
+}
+.info-gallery {
+   overflow: auto;
+   height: 100%;
+   width: 100%;
+}
+.info-gallery::-webkit-scrollbar {
+   width: 6px;
+   border-radius: 12px;
+}
+.info-gallery::-webkit-scrollbar-thumb {
+   background-color: #fff;
+}
+.info-gallery__title {
+   font-size: 24px;
+   color: #fff;
+   font-weight: 500;
+   line-height: 1.2;
+}
+.info-gallery__title:not(:last-child) {
+   margin-bottom: 14px;
+}
+.info-gallery__text {
+   font-size: 16px;
+   color: #fff;
+   line-height: 1.5;
+}
